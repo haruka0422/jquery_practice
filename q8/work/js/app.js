@@ -5,7 +5,7 @@ $(function () {
   let previousSearchWord = "";
 
   //検索ボタンを押した時の関数の処理
-  $(".search-button").on("click", function () {
+  $(".search-btn").on("click", function () {
     const searchWord = $("#search-input").val();
     //サーチワードと前回のワードが異なる場合、ページを１にリセットし、リストをemptyで無にする。
     if (searchWord !== previousSearchWord) {
@@ -27,9 +27,13 @@ $(function () {
       //リクエストが成功すると変数サクセスを表示させる。
       .done(function (response) {
         const success = response["@graph"];
+        console.log("ここに入ったら成功");
+        console.log(success[0].items);
+        displayResults(success[0].items);
       })
       //リクエストが失敗すると変数エラーを表示させる。
       .fail(function (err) {
+        console.log("ここに入ったらエラー");
         displayError(err);
       });
   });
@@ -42,6 +46,8 @@ $(function () {
     $("#search-input").val("");
     $(".message").remove();
   });
+
+  //50~81を変えて、検索結果が見つかりませんでしたと、エラーが発生しました。<br>再度更新してください。が出てくるようにする。
   //１つ以上のsuccessがある時に実行
   function displayResults(success) {
     if (success && success.length > 0) {
@@ -74,6 +80,7 @@ $(function () {
       }
     }
   }
+
   //APIがうまく送信されなかったときのエラー
   function displayError(err) {
     $(".lists").before(
