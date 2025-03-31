@@ -6,8 +6,6 @@ $(function () {
     // テキストボックスに入力されている値を取得しコンソールログに出力
     console.log($('[name="name1"]').val());
 
-    // console.log("名字" + $("#family__name").val());
-
     //「名前」をコンソールログに出力
     console.log("名前");
     // テキストボックスに入力されている値を取得しコンソールログに出力
@@ -29,11 +27,6 @@ $(function () {
         "日"
     );
 
-    //「性別」をコンソールログに出力
-    // console.log("性別");
-    // //ラジオボタンを取得する
-    // console.log($('[name="gender"]:checked').val());
-    //「職業」をコンソールログに出力
 
     // 「性別」(ラジオボタン)を取得する
     console.log("性別:" + $('[name="gender"]:checked').val());

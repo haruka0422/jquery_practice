@@ -77,7 +77,7 @@ $(function () {
     } else {
       //検索結果が１つもなかった場合メッセージを表示
       $(".lists").before(
-        '<div class="message">検索結果が見つかりませんでした。</div>'
+        '<div class="message">検索結果が見つかりませんでした。<br>別のキーワードで検索して下さい。</div>'
       );
     }
   }
@@ -85,7 +85,7 @@ $(function () {
   //APIがうまく送信されなかったときのエラー
   function displayError(err) {
     $(".lists").before(
-      '<div class="message">エラーが発生しました。<br>再度更新してください。</div>'
+      '<div class="message">正常に通信できませんでした。<br>インターネットの接続の確認をしてください。</div>'
     );
   }
 });
